@@ -2,7 +2,7 @@ const io = require('socket.io-client');
 const axios = require('axios');
 
 // --- KABUTERJI CONFIGURATION ---
-const RELAY_SERVER_URL = process.env.RELAY_URL || 'http://localhost:8000'; 
+const RELAY_SERVER_URL = process.env.RELAY_URL || 'https://perfect-cooperation-production-824e.up.railway.app'; 
 const LOCAL_BACKEND_URL = process.env.LOCAL_URL || 'http://localhost:3000'; 
 // -------------------------------
 

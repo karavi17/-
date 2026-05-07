@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Kabuterji - Remote Control</title>
+    <title>Kabuterji - MovieBox API Bridge</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600&display=swap" rel="stylesheet">
 </head>
@@ -11,24 +11,24 @@
     <div class="container">
         <header>
             <h1>🕊️ Kabuterji</h1>
-            <p>Testing Localhost from InfinityFree</p>
+            <p>MovieBox API Bridge (InfinityFree ➡️ Localhost)</p>
         </header>
 
         <main>
-            <div class="card">
-                <h3>Relay Server URL (Public IP)</h3>
-                <input type="text" id="relayUrl" placeholder="http://123.45.67.89:8000" value="http://localhost:8000">
-                <p class="hint">Yaha apne Relay Server (VPS) ka IP dalein. Testing ke liye localhost:8000 rehne dein.</p>
+            <div class="card info-box">
+                <h3>Relay Status</h3>
+                <p id="relayStatus">Railway URL: <span class="url">perfect-cooperation-production-824e.up.railway.app</span></p>
+                <p class="hint">Ensure your Local Agent is running to receive requests.</p>
             </div>
 
             <div class="actions">
-                <button id="getHelloBtn" class="primary-btn">Get Data (GET /hello)</button>
-                <button id="postDataBtn" class="secondary-btn">Post Data (POST /data)</button>
+                <button id="getHelloBtn" class="primary-btn">Fetch Movie List</button>
+                <button id="postDataBtn" class="secondary-btn">Test POST Request</button>
             </div>
 
             <div class="response-section">
-                <h3>Response:</h3>
-                <div id="statusIndicator" class="status">Status: Waiting...</div>
+                <div id="statusIndicator" class="status">Status: Ready</div>
+                <h3>Backend Response:</h3>
                 <pre id="responseOutput">{}</pre>
             </div>
         </main>
