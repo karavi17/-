@@ -62,7 +62,7 @@ app.use('/api', (req, res) => {
     const requestData = {
         requestId,
         method: req.method,
-        path: req.url.replace(/^\/api/, ''), // Remove /api prefix before sending to agent
+        path: req.url, // Keep the full path (including /api) as the backend expects it
         headers: req.headers,
         body: req.body
     };
