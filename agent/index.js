@@ -3,7 +3,7 @@ const axios = require('axios');
 
 // --- KABUTERJI CONFIGURATION ---
 const RELAY_SERVER_URL = process.env.RELAY_URL || 'https://perfect-cooperation-production-824e.up.railway.app'; 
-const LOCAL_BACKEND_URL = process.env.LOCAL_URL || 'http://localhost:3000'; 
+const LOCAL_BACKEND_URL = process.env.LOCAL_URL || 'http://localhost:6789'; 
 // -------------------------------
 
 const socket = io(RELAY_SERVER_URL, {

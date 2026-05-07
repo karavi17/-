@@ -56,18 +56,18 @@ io.on('connection', (socket) => {
 });
 
 // Main Relay Endpoint
-app.use((req, res) => {
+app.use('/api', (req, res) => {
     const requestId = uuidv4();
     
     const requestData = {
         requestId,
         method: req.method,
-        path: req.url, // Includes query params
+        path: req.url, // This will now be the part after /api (e.g., /homepage)
         headers: req.headers,
         body: req.body
     };
 
-    console.log(`📩 Forwarding: ${req.method} ${req.url}`);
+    console.log(`📩 Forwarding to API: ${req.method} ${req.url}`);
 
     // Send to connected agent
     io.emit('frontend-request', requestData);
@@ -81,6 +81,11 @@ app.use((req, res) => {
             res.status(504).send('Kabuterji Timeout: Local agent is taking too long to respond.');
         }
     }, 60000);
+});
+
+// Fallback for non-api routes
+app.use((req, res) => {
+    res.status(404).send('Kabuterji: Path not found. Make sure you use /api prefix.');
 });
 
 const PORT = process.env.PORT || 8000;
