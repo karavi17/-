@@ -3,9 +3,18 @@ const http = require('http');
 const { Server } = require('socket.io');
 const { v4: uuidv4 } = require('uuid');
 const compression = require('compression');
+const cors = require('cors');
 
 const app = express();
 const server = http.createServer(app);
+
+// CORS fix for Frontend
+app.use(cors({
+    origin: '*', // Allow all origins (InfinityFree compatible)
+    methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS'],
+    allowedHeaders: ['Content-Type', 'Authorization']
+}));
+
 const io = new Server(server, {
     maxHttpBufferSize: 1e8, // 100MB buffer for large movie data
     pingTimeout: 60000
